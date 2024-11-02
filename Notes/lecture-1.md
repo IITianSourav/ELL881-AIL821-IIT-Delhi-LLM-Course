@@ -101,3 +101,20 @@ This document consolidates insights from a lecture on Large Language Models (LLM
 ---
 
 This structured overview presents LLMs' evolution, their industrial significance, current challenges, and the skills necessary for advanced understanding and innovation within the field. By combining foundational theory with hands-on practice, the course aims to equip learners with the knowledge and skills needed to effectively work with, evaluate, and innovate within the rapidly advancing domain of LLMs.
+
+---
+| Model                | Organization           | Date         | Size (# params) |
+|----------------------|------------------------|--------------|-----------------|
+| ELMo                 | AI2                    | Feb 2018     | 94,000,000      |
+| GPT-1                | OpenAI                 | Jun 2018     | 110,000,000     |
+| BERT                 | Google                 | Oct 2018     | 340,000,000     |
+| XLM                  | Facebook               | Jan 2019     | 655,000,000     |
+| GPT-2                | OpenAI                 | Mar 2019     | 1,500,000,000   |
+| RoBERTa              | Facebook               | Jul 2019     | 355,000,000     |
+| Megatron-LM          | NVIDIA                 | Sep 2019     | 8,300,000,000   |
+| T5                   | Google                 | Oct 2019     | 11,000,000,000  |
+| Turing-NLG           | Microsoft              | Feb 2020     | 17,000,000,000  |
+| GPT-3                | OpenAI                 | May 2020     | 175,000,000,000 |
+| Megatron-Turing NLG  | Microsoft, NVIDIA      | Oct 2021     | 530,000,000,000 |
+| Gopher               | DeepMind               | Dec 2021     | 280,000,000,000 |
+
