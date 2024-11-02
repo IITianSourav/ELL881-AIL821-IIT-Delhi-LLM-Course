@@ -5,6 +5,8 @@ Language models assign probabilities to sequences of words, allowing them to pre
 - **Objective**: To represent the probability of a sequence of words, $\( P(w_1, w_2, \ldots, w_n) \)$, to predict or generate text.
 - **Applications**: Language models can be used in predictive text input, machine translation, sentiment analysis, and other NLP tasks.
 
+---
+
 #### 2. **N-gram Models as Language Models**
 
 An **N-gram model** predicts a word based on the previous $\( N-1 \)$ words. It approximates the probability of a word sequence by breaking it down into smaller word combinations (N-grams).
@@ -20,6 +22,8 @@ An **N-gram model** predicts a word based on the previous $\( N-1 \)$ words. It 
    \]$$
 This approach simplifies calculations but has limitations due to fixed context length and data sparsity.
 
+---
+
 #### 3. **Challenges with N-gram Models**
 
 ##### 3.1 Data Sparsity
@@ -31,11 +35,15 @@ N-grams are limited by their window size (N), which means they may not capture d
 ##### 3.3 Out-of-Vocabulary (OOV) Words
 N-grams struggle when they encounter words that were not seen in the training data. Such words are assigned zero probability, affecting the overall prediction quality.
 
+---
+
 #### 4. **Handling OOV Words and Data Sparsity**
 
 To address the zero-probability issue and sparse data:
    - **Lexicon Creation**: Define a set of frequent words as the lexicon; rare words are replaced by an "unknown" token (UNK).
    - **UNK Token**: Maps all words outside the lexicon to the UNK token, smoothing out the probability distribution and reducing zero-probability issues for unseen words during testing.
+
+---
 
 #### 5. **Smoothing Techniques in Language Models**
 
@@ -55,6 +63,8 @@ A variation of Add-One smoothing that allows a smaller constant \( K \) (between
    \]$$
 Add-K smoothing provides more control, particularly in balancing between rare and frequent words.
 
+---
+
 #### 6. **Backoff and Interpolation Techniques**
 
 ##### 6.1 Backoff Smoothing
@@ -70,6 +80,8 @@ Interpolation combines probabilities from different N-gram levels (e.g., trigram
    \]$$
 where $\( \lambda_1 + \lambda_2 + \lambda_3 = 1 \)$. Interpolation ensures that each N-gram level contributes, enhancing prediction by leveraging both local and global context.
 
+---
+
 #### 7. **Advanced Smoothing Techniques**
 
 Advanced techniques like Good-Turing and Kneser-Ney provide refined smoothing by adjusting for patterns in word occurrence frequencies and reassigning probabilities to low-frequency events:
@@ -79,6 +91,8 @@ Good-Turing adjusts probabilities based on the number of N-grams occurring once 
 
 ##### 7.2 Kneser-Ney Smoothing
 Kneser-Ney smoothing enhances predictions by considering how often words appear in diverse contexts, increasing the probability of less frequent but contextually significant words over common filler words. This technique is especially effective in language models where context-driven word choice is critical.
+
+--
 
 #### 8. **Evaluating Language Models with Perplexity**
 
@@ -94,6 +108,8 @@ Perplexity is the standard metric for evaluating the effectiveness of language m
 
 ##### Importance of Perplexity
 A low perplexity score suggests that a language model is accurate and efficient at predicting the likelihood of sentences. It serves as a benchmark for comparing models and assessing improvements.
+
+---
 
 #### 9. **Limitations of Traditional Language Models and Shift to Neural Models**
 
