@@ -1,8 +1,6 @@
-Here are the notes based on Part 1, Part 2, and Part 3 of the NLP lecture discussion:
 
----
 
-### **Part 1: Fundamentals of NLP & Language Models**
+### **Fundamentals of NLP & Language Models**
 
 1. **Definition and Scope of NLP**:
    - Natural Language Processing (NLP) bridges human language with machine learning, involving tasks from simple tokenization to complex dialogue management.
@@ -30,7 +28,7 @@ Here are the notes based on Part 1, Part 2, and Part 3 of the NLP lecture discus
 
 ---
 
-### **Part 2: Text Preprocessing & Basic Language Tasks**
+### **Text Preprocessing & Basic Language Tasks**
 
 1. **Preprocessing Steps**:
    - **Tokenization**: Breaking text into words or subwords.
@@ -55,7 +53,7 @@ Here are the notes based on Part 1, Part 2, and Part 3 of the NLP lecture discus
 
 ---
 
-### **Part 3: WordNet, Distributional Semantics, and Advanced NLP Tasks**
+### **WordNet, Distributional Semantics, and Advanced NLP Tasks**
 
 1. **Ontological Semantics & WordNet**:
    - *Ontology*: Uses structured data to connect words based on relationships.
