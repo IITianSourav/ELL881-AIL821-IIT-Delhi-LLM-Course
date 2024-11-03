@@ -1,5 +1,5 @@
 
-### Lecture on Word Representation in NLP
+## Lecture on Word Representation in NLP
 
 #### Recap of Previous Lecture
 - Discussed **language modeling** in detail, including:
@@ -50,6 +50,15 @@
   
 2. **Count-Based Approaches**:
    - **Term-Context Matrix**: Counts co-occurrences of words within a context window across documents.
+
+| Term        | Aardvark | Computer | Data | Pinch | Result | Sugar |
+|-------------|----------|----------|------|-------|--------|-------|
+| Apricot    | 0        | 0        | 0    | 1     | 0      | 1     |
+| Pineapple   | 0        | 0        | 0    | 1     | 0      | 1     |
+| Digital     | 0        | 2        | 1    | 0     | 1      | 0     |
+| Information  | 0        | 11       | 6    | 0     | 4      | 0     |
+
+
    - **Similarity Measurement**: Words with similar contexts are likely semantically similar.
    - **Challenges**:
      - High **dimensionality** and **sparsity** of the matrix.
@@ -57,28 +66,42 @@
 
 3. **TF-IDF (Term Frequency-Inverse Document Frequency)**:
    - **TF** (Term Frequency): Measures how often a word appears in a document, adjusted using a log scale to reduce the effect of common words.
-   - **IDF** (Inverse Document Frequency): Diminishes the weight of words that appear in many documents.
-   - **Objective**: Emphasize unique, contextually relevant words and normalize the influence of frequent but uninformative words.
+     
+     $$\text{tf}_{t,d} = count(t,d)$$
+  - Where $t$ is the term and $d$ is the relative document.
+  - Sometimes we use a log smoothing in this, leading to the following modification.
 
----
-
-**Inverse Document Frequency (IDF):**
-1. **Definition of Document Frequency (DF):**
+    $$tf_{t,d} = \log_{10}(count(t,d)+1)$$
+   - **Challenges**
+       - Frequently apparing words like stop words will have a high frequency count.
+       - To tackle this challenge we use another component of this known as Inverse Document Frequence.
+- **Inverse Document Frequency (IDF):**
+- **Definition of Document Frequency (DF):**
    - Document frequency measures the number of documents in which a specific term appears.
    - Unlike term frequency, DF does not count the total occurrences within a document but simply whether the term appears or not.
 
-2. **Examples of DF:**
+- **Examples of DF:**
    - Words with low DF are unique to specific documents (e.g., "Romeo" appearing in one document among many).
    - Words with high DF are common across multiple documents (e.g., "action" appearing in many documents).
 
-3. **Inverse Document Frequency (IDF):**
-   - IDF is calculated as the inverse of DF, often modified as $IDF = \log(\frac{N}{DF})$, where $N$ is the total number of documents.
+| Term   | Collection Frequency | Document Frequency |
+|--------|---------------------|--------------------|
+| Romeo  | 113                 | 1                  |
+| Action | 113                 | 31                 |
+
+Collection frequency give count of term across all documents.
+
+
+- **Inverse Document Frequency (IDF):**
+   - IDF is calculated as the inverse of DF, often modified as $idf_{t} = \log_{10}(\frac{N}{DF})$, where $N$ is the total number of documents.
    - The IDF value penalizes common words (those appearing in most documents), thus prioritizing unique or representative terms for the document.
    - Example: Words like "Romeo" (rare) have a high IDF, while common words like "good" have a low IDF, close to zero.
 
-4. **TF-IDF Calculation:**
+- **TF-IDF Calculation:**
    - The final TF-IDF score is obtained by multiplying TF with IDF, adjusting each term’s weight within a document by its specificity across documents.
    - TF-IDF effectively filters out frequent, less informative words while highlighting significant, unique terms.
+
+    $$W_{t,d} = tf_{t,d} \times idf_{t}$$
 
 **Limitations of Count-Based Approaches:**
 1. **Sparsity and Dimensionality:**
@@ -93,7 +116,7 @@
 
 ---
 
-**Prediction-Based Approaches - Word2Vec:**
+## **Prediction-Based Approaches - Word2Vec:**
 1. **Transition to Prediction-Based Models:**
    - Developed in 2013 by Mikolov et al., Word2Vec introduced dense vector embeddings for words, providing compact representations (typically 100-500 dimensions).
 
