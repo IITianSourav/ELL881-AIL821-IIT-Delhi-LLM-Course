@@ -2,14 +2,14 @@ This lecture covers **GloVe embeddings**, a word embedding technique that combin
 
 ### Objective Function for GloVe
 The GloVe (Global Vectors for Word Representation) method creates embeddings by leveraging word co-occurrence statistics:
-- The objective function uses **logarithmic weighting** of co-occurrence counts $\log(x_{ij})$, where \( x_{ij} \) is the co-occurrence of word \( i \) with word \( j \).
+- The objective function uses **logarithmic weighting** of co-occurrence counts $\log(x_{ij})$, where $x_{ij}$ is the co-occurrence of word $i$ with word $j$.
 - Minimizing this objective aims to approximate the **logarithmic relationship** between word pairs, capturing nuanced semantic relationships.
 
 --- 
 
 ### Handling High Co-occurrence Counts
 - High-frequency words (like "the" or "is") may distort embeddings by giving them undue weight.
-- To mitigate this, GloVe introduces a **weighting function \( f(x) \)** that scales down high-frequency pairs:
+- To mitigate this, GloVe introduces a **weighting function** $f(x)$ that scales down high-frequency pairs:
   - For very low counts, it’s close to zero, allowing sparse co-occurrence information.
   - It is **non-decreasing** to ensure no reduction for valid co-occurrences as counts increase.
   - Beyond a threshold $x_{\text{max}}$, the weight becomes constant to prevent high-frequency pairs from dominating the embedding process.
@@ -17,7 +17,7 @@ The GloVe (Global Vectors for Word Representation) method creates embeddings by 
 --- 
 
 ### Learning Process in GloVe
-1. **Two Embeddings per Word**: Each word has two vectors: a **target** vector \( w_i \) and a **context** vector \( w_j \).
+1. **Two Embeddings per Word**: Each word has two vectors: a **target** vector $w_i$ and a **context** vector $w_j$.
 2. **Optimization**: GloVe uses **gradient descent** to minimize the objective function concerning both vectors, leading to embeddings that reflect the word's meaning and context.
 3. **Hybrid Approach**: The method merges count-based characteristics (from statistical language models) with prediction-based attributes (like those in neural network language models), making it adaptable and robust across various contexts.
 
